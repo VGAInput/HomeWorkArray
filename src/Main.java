@@ -1,6 +1,5 @@
 public class Main {
 
-    int[] arr = generateRandomArray();
 
     public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
@@ -27,10 +26,11 @@ public class Main {
         Первым делом бухгалтеры попросили посчитать
         сумму всех выплат за месяц.
         */
+        int[] arr = generateRandomArray();
 
         int totalConsumptionMonth = 0;
-        for (int i = 0; i < generateRandomArray().length; i++) {
-            totalConsumptionMonth = totalConsumptionMonth + generateRandomArray()[i];
+        for (int i = 0; i < arr.length; i++) {
+            totalConsumptionMonth = totalConsumptionMonth + arr[i];
         }
         System.out.println("Сумма трат за месяц составила " + totalConsumptionMonth + " рублей");
     }
@@ -41,12 +41,18 @@ public class Main {
              и максимальную трату за день.
             */
 
-        int topCons = generateRandomArray()[0];
-        int bottomCons = generateRandomArray()[0];
+        int[] arr = generateRandomArray();
 
-        for (int i = 0; i < generateRandomArray().length; i++) {
-            if (generateRandomArray()[i] > topCons) topCons = generateRandomArray()[i];
-            if (generateRandomArray()[i] < bottomCons) bottomCons = generateRandomArray()[i];
+        int topCons = arr[0];
+        int bottomCons = arr[0];
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > topCons) {
+                topCons = arr[i];
+            }
+            if (arr[i] < bottomCons) {
+                bottomCons = arr[i];
+            }
         }
         System.out.println("Минимальная сумма трат за день составила " + bottomCons + " рублей. " +
                 "Максимальная сумма трат за день составила " + topCons + " рублей");
@@ -58,14 +64,15 @@ public class Main {
         А теперь нам нужно понять, какую в среднем сумму
         наша компания тратила в течение данных 30 дней.
         */
+        int[] arr = generateRandomArray();
 
         int median = 0;
         int totalConsumptionMonth = 0;
 
-        for (int i = 0; i < generateRandomArray().length; i++) {
-            totalConsumptionMonth = totalConsumptionMonth + generateRandomArray()[i];
-            if (i == generateRandomArray().length - 1) {
-                median = totalConsumptionMonth / generateRandomArray().length;
+        for (int i = 0; i < arr.length; i++) {
+            totalConsumptionMonth = totalConsumptionMonth + arr[i];
+            if (i == arr.length - 1) {
+                median = totalConsumptionMonth / arr.length;
                 System.out.println("Средняя сумма трат за месяц составила " + median + " рублей.");
             }
 
